@@ -1,8 +1,6 @@
 # ReliQora-AI
 AI-powered predictive application failure detection using machine learning and deep learning.
 
-# ReliQora AI
-
 ### Predictive Application Intelligence
 
 ReliQora AI is an AI-powered application reliability system designed to predict the risk of application failure before it occurs.
