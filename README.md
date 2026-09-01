@@ -157,4 +157,4 @@ This is an independent learning and portfolio project inspired by real-world app
 ## Author
 
 **Rebecca Charles**
-Engineer
+
