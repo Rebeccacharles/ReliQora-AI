@@ -501,6 +501,6 @@ The predictions produced by this project are intended for demonstration and educ
 
 If you find this project useful or interesting, feel free to explore the repository and follow its future development.
 
-**ReliQora-AI — Predict. Assess. Improve Reliability.**
+**ReliQora-AI - Predict. Assess. Improve Reliability.**
 
 
