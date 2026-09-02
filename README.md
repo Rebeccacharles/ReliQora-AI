@@ -8,7 +8,7 @@ ReliQora-AI is an end-to-end machine learning and deep learning project designed
 
 The system analyzes signals such as CPU utilization, memory utilization, disk utilization, request rate, response latency, error rate, network latency, and active connections to estimate the probability of application failure.
 
-**Current Release:** `v1.0.0` — Initial Release
+**Current Release:** `v1.0.0` - Initial Release
 
 ---
 
@@ -445,7 +445,7 @@ The application will be available locally through the Streamlit URL displayed in
 
 ## V1.0.0 Release
 
-### V1.0.0 — Initial Release
+### V1.0.0 - Initial Release
 
 The first release provides an end-to-end predictive application failure detection pipeline:
 
@@ -524,7 +524,7 @@ The predictions produced by this project are intended for demonstration and educ
 
 If you find this project useful or interesting, feel free to explore the repository and follow its future development.
 
-**ReliQora-AI — Predict. Assess. Improve Reliability.**
+**ReliQora-AI - Predict. Assess. Improve Reliability.**
 
 
 
