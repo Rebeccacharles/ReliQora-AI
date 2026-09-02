@@ -2,6 +2,8 @@
 
 ### AI-Powered Predictive Application Failure Detection
 
+**Live Demo:** [Try ReliQora-AI](https://reliqora-ai.streamlit.app/)
+
 ReliQora-AI is a machine learning and deep learning project designed to **predict application failure risk from application and infrastructure telemetry**.
 
 The system analyzes telemetry such as CPU utilization, memory utilization, response latency, error rate, network latency, request rate, and active connections to estimate the probability of application failure.
