@@ -29,7 +29,7 @@ The project combines:
 * Telemetry-based risk indicators
 * Interactive Streamlit dashboard
 
-> **ReliQora** is a project-defined name inspired by **Reliability + Intelligence + Predictive Awareness**.
+> **ReliQora** is a project-defined name representing the idea of intelligent application reliability and predictive monitoring.
 
 ---
 
