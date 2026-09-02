@@ -1,14 +1,27 @@
 # ReliQora-AI
 
-### AI-Powered Predictive Application Failure Detection
+## AI-Powered Predictive Application Failure Detection
 
 **Live Demo:** [Try ReliQora-AI](https://reliqora-ai.streamlit.app/)
 
-ReliQora-AI is a machine learning and deep learning project designed to **predict application failure risk from application and infrastructure telemetry**.
+ReliQora-AI is an end-to-end machine learning and deep learning project designed to **predict application failure risk using application and infrastructure telemetry**.
 
-The system analyzes telemetry such as CPU utilization, memory utilization, response latency, error rate, network latency, request rate, and active connections to estimate the probability of application failure.
+The system analyzes signals such as CPU utilization, memory utilization, disk utilization, request rate, response latency, error rate, network latency, and active connections to estimate the probability of application failure.
 
-**Current Release: `v1.0.0` - Initial Release**
+**Current Release:** `v1.0.0` — Initial Release
+
+---
+
+## Key Highlights
+
+* End-to-end machine learning pipeline for application failure-risk prediction
+* Comparison of traditional Machine Learning models and an Artificial Neural Network
+* PR-AUC-based model evaluation and selection
+* Application failure probability prediction
+* Risk-level classification
+* Telemetry-based risk indicators
+* Interactive Streamlit dashboard
+* Live deployment
 
 ---
 
@@ -25,6 +38,7 @@ The project combines:
 * Traditional Machine Learning
 * Artificial Neural Networks
 * Data preprocessing
+* Feature scaling
 * Model evaluation
 * Failure probability prediction
 * Risk-level classification
@@ -49,12 +63,12 @@ The goal of ReliQora-AI is to answer:
 
 ReliQora-AI aims to:
 
-* Analyze application telemetry
+* Analyze application and infrastructure telemetry
 * Identify patterns associated with application failures
 * Predict application failure probability
 * Classify application risk levels
 * Identify major telemetry-based risk indicators
-* Compare traditional ML models with a neural network
+* Compare traditional Machine Learning models with an Artificial Neural Network
 * Provide an interactive monitoring-style dashboard
 
 ---
@@ -62,29 +76,29 @@ ReliQora-AI aims to:
 ## System Workflow
 
 ```text
-Application Telemetry
-        ↓
-Data Generation
-        ↓
-Data Preprocessing
-        ↓
-Feature Scaling
-        ↓
-Train/Test Split
-        ↓
-Baseline ML Models
-        ↓
-Artificial Neural Network
-        ↓
-Model Evaluation
-        ↓
-Best Model Selection
-        ↓
-Failure Probability Prediction
-        ↓
-Risk-Level Classification
-        ↓
-Streamlit Dashboard
+Application & Infrastructure Telemetry
+                ↓
+         Data Generation
+                ↓
+        Data Preprocessing
+                ↓
+         Feature Scaling
+                ↓
+          Train/Test Split
+                ↓
+           Model Training
+          ↙             ↘
+Baseline ML Models       ANN
+          ↘             ↙
+         Model Evaluation
+                ↓
+       Best Model Selection
+                ↓
+  Failure Probability Prediction
+                ↓
+     Risk-Level Classification
+                ↓
+       Streamlit Dashboard
 ```
 
 ---
@@ -152,20 +166,24 @@ Accuracy is reported for completeness but is **not treated as the primary model-
 
 ### V1.0.0 Results
 
-| Model                   | Accuracy | Failure Recall | Failure F1-Score |     PR-AUC |
-| ----------------------- | -------: | -------------: | ---------------: | ---------: |
-| **Logistic Regression** | **0.76** |       **0.74** |         **0.74** | **0.8186** |
-| ANN                     |     0.76 |           0.72 |             0.74 |     0.8185 |
-| Random Forest           |     0.75 |           0.73 |             0.74 |     0.8129 |
-| Decision Tree           |     0.68 |           0.62 |             0.65 |     0.6821 |
+| Model                      | Accuracy | Failure Recall | Failure F1-Score |     PR-AUC |
+| -------------------------- | -------: | -------------: | ---------------: | ---------: |
+| **Logistic Regression 🏆** | **0.76** |       **0.74** |         **0.74** | **0.8186** |
+| ANN                        |     0.76 |           0.72 |             0.74 |     0.8185 |
+| Random Forest              |     0.75 |           0.73 |             0.74 |     0.8129 |
+| Decision Tree              |     0.68 |           0.62 |             0.65 |     0.6821 |
 
-### 🏆 Selected V1.0 Model
+---
+
+## 🏆 Selected V1.0 Model
 
 **Logistic Regression** was selected as the primary prediction model for the V1.0 dashboard because it achieved the highest PR-AUC:
 
 > **PR-AUC: 0.8186**
 
-The ANN performed almost identically with a PR-AUC of 0.8185, while Random Forest achieved 0.8129.
+The ANN performed almost identically with a PR-AUC of **0.8185**, while Random Forest achieved **0.8129**.
+
+Although the ANN achieved nearly identical performance, Logistic Regression was selected for V1.0 because it achieved the highest PR-AUC while providing a simpler and more interpretable prediction model.
 
 ---
 
@@ -180,10 +198,10 @@ The V1.0 Logistic Regression model produced:
 
 This corresponds to:
 
-* True Negatives: 829
-* False Positives: 234
-* False Negatives: 244
-* True Positives: 693
+* True Negatives: **829**
+* False Positives: **234**
+* False Negatives: **244**
+* True Positives: **693**
 
 The model achieved a **74% recall for the failure class**, meaning it correctly identified a substantial portion of the simulated failure cases.
 
@@ -193,7 +211,7 @@ The model achieved a **74% recall for the failure class**, meaning it correctly 
 
 ReliQora-AI includes a Streamlit dashboard that allows users to enter telemetry values and receive an application failure-risk prediction.
 
-### Dashboard capabilities
+### Dashboard Capabilities
 
 The V1.0 dashboard provides:
 
@@ -205,28 +223,30 @@ The V1.0 dashboard provides:
 * Error rate input
 * Network latency input
 * Active connections input
-* Failure probability
+* Failure probability prediction
 * Risk-level classification
-* Key risk indicators
+* Key telemetry-based risk indicators
 * Model identification
 
-### Risk Levels
+---
+
+## Risk Levels
 
 The dashboard classifies predicted failure probability into three levels:
 
-| Probability  | Risk Level |
-| ------------ | ---------- |
-| `< 30%`      | 🟢 LOW     |
-| `30% – <60%` | 🟡 MEDIUM  |
-| `≥ 60%`      | 🔴 HIGH    |
+| Failure Probability | Risk Level |
+| ------------------- | ---------- |
+| `< 30%`             | 🟢 LOW     |
+| `30% – <60%`        | 🟡 MEDIUM  |
+| `≥ 60%`             | 🔴 HIGH    |
 
 The dashboard also checks telemetry values against predefined thresholds to identify major risk indicators.
 
 ---
 
-## Example Prediction
+## Example Predictions
 
-### Normal Telemetry
+### 🟢 Normal Telemetry
 
 Using the default dashboard telemetry values, the model produced approximately:
 
@@ -241,7 +261,9 @@ The dashboard reported:
 No major telemetry risk indicators detected.
 ```
 
-### High-Risk Telemetry
+---
+
+### 🔴 High-Risk Telemetry
 
 When telemetry was configured with elevated resource usage and latency:
 
@@ -272,7 +294,7 @@ The dashboard identified multiple risk indicators, including:
 * High network latency
 * High number of active connections
 
----
+
 
 ## Technology Stack
 
@@ -315,7 +337,7 @@ The dashboard identified multiple risk indicators, including:
 
 ---
 
-## Project Structure
+### Project Structure
 
 ```text
 ReliQora-AI/
@@ -359,59 +381,59 @@ ReliQora-AI/
 
 ## How to Run
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Rebeccacharles/ReliQora-AI.git
 cd ReliQora-AI
 ```
 
-### 2. Create a virtual environment
+### 2. Create a Virtual Environment
 
 ```bash
 python -m venv .venv
 ```
 
-### 3. Activate the virtual environment
+### 3. Activate the Virtual Environment
 
 #### Windows PowerShell
 
-```powershell
+```bash
 .venv\Scripts\Activate.ps1
 ```
 
-### 4. Install dependencies
+### 4. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Generate the dataset
+### 5. Generate the Dataset
 
 ```bash
 python generate_dataset.py
 ```
 
-### 6. Preprocess the data
+### 6. Preprocess the Data
 
 ```bash
 python src/preprocess.py
 ```
 
-### 7. Train the baseline models
+### 7. Train the Baseline Models
 
 ```bash
 python src/train_baseline.py
 python src/train_models.py
 ```
 
-### 8. Train the ANN
+### 8. Train the Artificial Neural Network
 
 ```bash
 python src/train_ann.py
 ```
 
-### 9. Launch the dashboard
+### 9. Launch the Dashboard
 
 ```bash
 python -m streamlit run app.py
@@ -423,21 +445,22 @@ The application will be available locally through the Streamlit URL displayed in
 
 ## V1.0.0 Release
 
-### V1.0.0 - Initial Release
+### V1.0.0 — Initial Release
 
 The first release provides an end-to-end predictive application failure detection pipeline:
 
-* Synthetic telemetry dataset
+* Synthetic telemetry dataset generation
 * Data preprocessing
 * Feature scaling
-* Three baseline ML models
+* Three baseline Machine Learning models
 * Artificial Neural Network
-* Model evaluation
-* Logistic Regression model selection
+* Model evaluation and comparison
+* PR-AUC-based model selection
 * Failure probability prediction
 * Risk-level classification
-* Telemetry risk indicators
+* Telemetry-based risk indicators
 * Interactive Streamlit dashboard
+* Live deployment
 
 **Release:** `v1.0.0`
 
@@ -447,7 +470,7 @@ The first release provides an end-to-end predictive application failure detectio
 
 V1.0.0 uses **independently generated synthetic telemetry data** to demonstrate the machine learning workflow.
 
-The dashboard provides a **real-time-style simulation** rather than a connection to live production telemetry.
+The dashboard provides an **interactive monitoring simulation** rather than a connection to live production telemetry.
 
 The current release is intended as a learning and portfolio implementation of an application reliability prediction workflow.
 
@@ -455,7 +478,7 @@ The current release is intended as a learning and portfolio implementation of an
 
 ## Future Enhancements
 
-Planned improvements include:
+Potential future improvements include:
 
 * Explainable AI using SHAP
 * Feature-importance visualization
@@ -501,6 +524,7 @@ The predictions produced by this project are intended for demonstration and educ
 
 If you find this project useful or interesting, feel free to explore the repository and follow its future development.
 
-**ReliQora-AI - Predict. Assess. Improve Reliability.**
+**ReliQora-AI — Predict. Assess. Improve Reliability.**
+
 
 
